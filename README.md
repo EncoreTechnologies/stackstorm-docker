@@ -60,7 +60,7 @@ This sensor exposes the following triggers:
 ## Requirements
 
 1. Python 3.6 or greater
-2. docker-ce (version 20.10 or later)
+2. docker api (version 1.41 or later)
 3. pip install docker (5.0.0 or later)
 
 YMMV if you use versions not listed here.
@@ -89,6 +89,6 @@ For example, if `stanley` is the name of the system user, he should be added to 
 
 (If you are currently logged on as the user you are trying to add, you will have to logout/log back in.)
 
-There may also be connection issues of the mode for the socket file isn't correct:
+There may also be connection issues if the mode for the socket file isn't read and writable:
 
 * sudo chmod 666 /var/run/docker.sock
