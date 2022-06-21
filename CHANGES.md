@@ -4,6 +4,7 @@
 
 - Replaced the depracated docker-py module with newer docker module
 - Updated Docker API version from 1.13 to 1.41
+- BREAKING CHANGE: The docker image push and pull functions from the API no longer support the insecure_registry parameter so that variable was removed from those respective actions
 - Added the following actions:
   - `container_exec` - Run a command inside the given container. Similar to docker exec.
   - `container_get` - Return the container object from the given name or ID. Return None if the container does not exist

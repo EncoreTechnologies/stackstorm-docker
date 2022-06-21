@@ -1,7 +1,5 @@
 import docker
-
 from lib.base import DockerBasePythonAction
-
 
 __all__ = [
     'ContainerGet'
