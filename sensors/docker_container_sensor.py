@@ -34,9 +34,9 @@ class DockerSensor(PollingSensor):
         if docker_opts['timeout'] is not None:
             self._timeout = docker_opts['timeout']
         self._ps_opts = docker_opts['ps_options']
-        self._client = docker.Client(base_url=self._url,
-                                     version=self._version,
-                                     timeout=self._timeout)
+        self._client = docker.APIClient(base_url=self._url,
+                                        version=self._version,
+                                        timeout=self._timeout)
         self._running_containers = self._get_active_containers()
 
     def poll(self):
