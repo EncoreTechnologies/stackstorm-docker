@@ -61,6 +61,10 @@
         description: "Build cache - set to True to use no cache"
         type: "boolean"
         default: false
+      network:
+        description: "Networking mode for the run commands during build"
+        type: "string"
+        default: "bridge"
       timeout:
         description: "Build timeout in seconds - default 10s"
         type: "integer"
