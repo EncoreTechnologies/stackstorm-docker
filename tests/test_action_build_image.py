@@ -30,6 +30,7 @@ class BuildImageTestCase(DockerBaseActionTestCase):
         opts_quiet = False
         opts_nocache = False
         opts_rm = True
+        opts_network = 'bridge'
         opts_timeout = 3600
 
         full_path = '/full/path/to/context'
@@ -47,8 +48,8 @@ class BuildImageTestCase(DockerBaseActionTestCase):
 
         self.assertEqual(result, expected_result)
         mock_images.build.assert_called_with(path=full_path, fileobj=test_fileobj, tag=test_tag,
-                                             quiet=opts_quiet, nocache=opts_nocache, rm=opts_rm,
-                                             timeout=opts_timeout)
+                                             quiet=opts_quiet, network_mode=opts_network,
+                                             nocache=opts_nocache, rm=opts_rm, timeout=opts_timeout)
         calls = [mock.call('print1'), mock.call('print2')]
         mock_print.assert_has_calls(calls, any_order=True)
         mock_os.path.expanduser.assert_called_with(test_dockerfile_path)
@@ -70,6 +71,7 @@ class BuildImageTestCase(DockerBaseActionTestCase):
         opts_quiet = False
         opts_nocache = False
         opts_rm = True
+        opts_network = 'bridge'
         opts_timeout = 3600
 
         full_path = '/full/path/to/Dockerfile'
@@ -89,8 +91,8 @@ class BuildImageTestCase(DockerBaseActionTestCase):
 
         self.assertEqual(result, expected_result)
         mock_images.build.assert_called_with(path=None, fileobj=test_fileobj, tag=test_tag,
-                                             quiet=opts_quiet, nocache=opts_nocache, rm=opts_rm,
-                                             timeout=opts_timeout)
+                                             quiet=opts_quiet, network_mode=opts_network,
+                                             nocache=opts_nocache, rm=opts_rm, timeout=opts_timeout)
         calls = [mock.call('print1'), mock.call('print2')]
         mock_print.assert_has_calls(calls, any_order=True)
         mock_os.path.expanduser.assert_called_with(test_dockerfile_path)

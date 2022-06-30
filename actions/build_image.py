@@ -29,8 +29,8 @@ class BuildImage(DockerBasePythonAction):
 
         # The build function return a tuple like (image_obj, generator)
         result = self.client.images.build(path=path, fileobj=fileobj, tag=tag, quiet=opts['quiet'],
-                                          nocache=opts['nocache'], rm=opts['rm'],
-                                          timeout=opts['timeout'])
+                                          network_mode=opts['network'], nocache=opts['nocache'],
+                                          rm=opts['rm'], timeout=opts['timeout'])
 
         image = result[0]
         generator = result[1]

@@ -1,5 +1,9 @@
 # Change Log
 
+# 2.1.0
+
+- Added network option to the config that will allow for selecting a network when building containers
+
 # 2.0.0
 
 - Replaced the depracated docker-py module with newer docker module

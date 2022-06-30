@@ -13,4 +13,5 @@
     rm: false
     quiet: false
     nocache: false
+    network: bridge
     timeout: 10
